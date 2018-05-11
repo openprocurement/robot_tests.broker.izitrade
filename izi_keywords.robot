@@ -1280,12 +1280,12 @@ izi document-manage add document new version
   Choose File  jquery=${documentManageSelector} documents-view .documents-view__documents-row .documents-view__documents-name[docId=${docId}]~.documents-view__documents-edit .documents-view__new-ver input  ${filePath}
   ${docCreateNewVersionSelector}=  Set Variable  ${documentManageSelector} document-new-version
   Wait Until Page Contains Element  jquery=${docCreateNewVersionSelector}
-  Run Keyword If  '${confidentialityText}' != '${None}'
+  Run Keyword If  "${confidentialityText}" != "${None}"
   ...  Run Keywords
   ...  izi checkbox check change  checkboxSelector=${docCreateNewVersionSelector} .document-manage__checkbox:eq(1) checkbox  check=True
   ...  AND
   ...  Input Text  jquery=${docCreateNewVersionSelector} .document-new-version__confidentiality input  ${confidentialityText}
-  Run Keyword If  '${isDescriptionDecision}' != '${None}'
+  Run Keyword If  "${isDescriptionDecision}" != "${None}"
   ...  izi checkbox check change  checkboxSelector=${docCreateNewVersionSelector} .document-manage__checkbox:eq(0) checkbox  check=True
   Run Keyword If  '${language}' != 'None'  izi dropdown select option  dropDownSelector=${docCreateNewVersionSelector} language-select  key=${language}
   Run Keyword If  '${docType}' != 'None'  izi dropdown select option  dropDownSelector=${docCreateNewVersionSelector} document-type-select  key=${docType}
@@ -1301,12 +1301,12 @@ izi document-manage add document
   Choose File  jquery=${documentManageSelector} .documents-manage__documents-control .documents-manage__new-doc-btn input  ${filePath}
   ${docCreateFormSelector}=  Set Variable  ${documentManageSelector} document-create-list .document-create-list__item:eq(0) document-create
   Wait Until Page Contains Element  jquery=${docCreateFormSelector}
-  Run Keyword If  '${confidentialityText}' != '${None}'
+  Run Keyword If  "${confidentialityText}" != "${None}"
   ...  Run Keywords
   ...  izi checkbox check change  checkboxSelector=${docCreateFormSelector} .document-manage__checkbox:eq(1) checkbox  check=True
   ...  AND
   ...  Input Text  jquery=${docCreateFormSelector} .document-create__confidentiality  ${confidentialityText}
-  Run Keyword If  '${isDescriptionDecision}' != '${None}'
+  Run Keyword If  "${isDescriptionDecision}" != "${None}"
   ...  izi checkbox check change  checkboxSelector=${docCreateFormSelector} .document-manage__checkbox:eq(0) checkbox  check=True
   izi dropdown select option  dropDownSelector=${docCreateFormSelector} language-select  key=${language}
   izi dropdown select option  dropDownSelector=${docCreateFormSelector} document-type-select  key=${docType}
