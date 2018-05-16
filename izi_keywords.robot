@@ -1150,7 +1150,7 @@ izi отримати поле cancellationReason з вимоги
   [Return]  ${value}
 
 izi знайти на сторінці тендера поле procurementMethodType
-  ${value}=  Execute Javascript		return $('.tender-info-notes:not(.mobile) ul li strong:contains(Тип процедури:)+span').text()
+  ${value}=  Execute Javascript		return $('.tender-info-notes:not(.mobile) ul li strong:contains(Тип процедури:)+span').text().trim()
 	${value}=	izi_service.get_prozorro_pmtype_by_izi_pmtext	${value}
   [Return]  ${value}
 
