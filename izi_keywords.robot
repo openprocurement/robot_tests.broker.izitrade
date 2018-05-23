@@ -899,18 +899,13 @@ izi award-claim-submit-form fill data
 izi claim-submit-form add document
   [Arguments]  ${document_path}  ${award_index}=${None}
   Run Keyword And Return If  '${award_index}'!='${None}'  izi award-claim-submit-form add document  ${document_path}
-
   Choose File  jquery=claims tender-pretense-create .documents-manage__feed-loader_1:first input  ${document_path}
-  Sleep  2
-  Click Button  jquery=claims tender-pretense-create .feed-block__content__wrapper documents-manage:first .feed-block__content:first button
-  Sleep  2
+  Sleep  4
 
 izi award-claim-submit-form add document
   [Arguments]  ${document_path}
   Choose File  jquery=claims award-pretense-create .documents-manage__feed-loader_1:first input  ${document_path}
-  Sleep  2
-  Click Button  jquery=claims award-pretense-create .feed-block__content__wrapper documents-manage:first .feed-block__content:first button
-  Sleep  2
+  Sleep  4
 
 izi claim-submit-form submit form
   [Arguments]  ${award_index}=${None}
