@@ -1081,11 +1081,21 @@ izi отримати поле status з вимоги
   [Arguments]  ${complaintID}
   izi select claims tab
   ${attribute}=  Set Variable  status
+
+  ${isDraftComplaint}=  Execute Javascript  return $('claims tender-pretense-create').attr('draftpretenseid')=='${complaintID}'
+  Run Keyword And Return If  '${isDraftComplaint}'=='True'  izi отримати поле status з чернетки вимоги
+
   ${value}=  izi find objectId element attribute  attribute=${attribute}  objectId=${complaintID}
   ...  wrapperElSelector=pretense-row .pretense-row__content-block
   ...  elThatHasObjectIdSelector=.pretense-row__more-info .pretense-data__info p:has(strong:contains(Ідентифікатор вимоги)) span
   ...  elThatHasValueSelector=.pretense-row__status
+
   [Return]  ${value}
+
+izi отримати поле status з чернетки вимоги
+  ${value}=  Execute Javascript  return $('claims tender-pretense-create').attr('status')
+  [Return]  ${value}
+
 
 izi отримати поле description з вимоги
   [Arguments]  ${complaintID}
